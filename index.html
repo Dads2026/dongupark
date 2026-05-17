@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kadıköy Freedom Park - Grid Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div id="phone-wrapper">
+        <div class="phone-side-button btn-silent"></div>
+        <div class="phone-side-button btn-vol-up"></div>
+        <div class="phone-side-button btn-vol-down"></div>
+        <div class="phone-side-button btn-power"></div>
+        
+        <div id="device-frame">
+        <div class="dynamic-island"></div>
+        <div class="status-bar">
+            <div class="time">9:41</div>
+            <div class="status-icons">
+                <i data-lucide="signal" class="sb-icon"></i>
+                <i data-lucide="wifi" class="sb-icon"></i>
+                <i data-lucide="battery-full" class="sb-icon"></i>
+            </div>
+        </div>
+
+        <main id="app-container">
+            <!-- Header -->
+            <header class="app-header">
+                <h1 class="header-title" id="global-header-title">HOME</h1>
+                <div class="header-actions">
+                    <button class="icon-btn"><i data-lucide="bell"></i><span class="badge"></span></button>
+                    <button class="icon-btn"><i data-lucide="settings"></i></button>
+                </div>
+            </header>
+
+            <!-- Views -->
+            <div id="view-home" class="view active">
+                <div class="home-header" style="margin-bottom: 16px;">
+                    <div class="welcome-text">
+                        <p style="font-size: 14px; letter-spacing: 0.5px;">Welcome back, <span class="user-ident">Agent 01</span></p>
+                    </div>
+                    <button class="icon-btn-profile">
+                        <i data-lucide="user"></i>
+                    </button>
+                </div>
+
+                <!-- Active Zone Hero Card -->
+                <div class="hero-card" style="padding: 24px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-panel); border: var(--glass-border); border-radius: 28px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="card-label" style="font-size: 10px; font-weight: 800; letter-spacing: 1.5px; color: var(--text-secondary); margin: 0;">CURRENT PROXIMITY</div>
+                        <div style="font-size: 10px; font-weight: 800; color: var(--accent-neon); display: flex; align-items: center; gap: 6px; background: rgba(124,152,133,0.1); padding: 4px 8px; border-radius: 6px;">
+                            <span class="p-dot" style="width: 6px; height: 6px; background: var(--accent-neon); border-radius: 50%; box-shadow: 0 0 8px var(--accent-neon);"></span>
+                            ACTIVE
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 4px;">
+                        <div style="font-family: var(--font-heading); font-size: 32px; font-weight: 700; color: var(--text-primary); letter-spacing: -1px; line-height: 1;">
+                            <span id="home-context-zone">Zone G-08</span>
+                        </div>
+                        <div style="font-size: 13px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px; font-weight: 600; padding-bottom: 4px;">
+                            <i data-lucide="map-pin" style="width: 14px; opacity: 0.8; color: var(--text-secondary);"></i>
+                            <span id="home-context-nodes">3 Nodes Nearby</span>
+                        </div>
+                    </div>
+                    <div style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 14px; margin-top: 6px; font-size: 12px; font-weight: 600; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="activity" style="width: 16px; color: var(--accent-blue);"></i>
+                        System Status: <span style="font-weight: 800; color: var(--text-primary);">Optimal</span>
+                    </div>
+                </div>
+                
+                <!-- Gamification Streak Component -->
+                <div class="streak-card">
+                    <div class="streak-info">
+                        <i data-lucide="flame" class="streak-icon"></i>
+                        <span>4 DAY STREAK</span>
+                    </div>
+                    <div class="streak-days">
+                        <div class="day-dot active">M</div>
+                        <div class="day-dot active">T</div>
+                        <div class="day-dot active">W</div>
+                        <div class="day-dot active current">T</div>
+                        <div class="day-dot">F</div>
+                        <div class="day-dot">S</div>
+                        <div class="day-dot">S</div>
+                    </div>
+                </div>
+
+                <!-- Primary Action CTA -->
+                <div class="main-action-container">
+                    <button class="primary-explore-btn" id="explore-map-btn">
+                        EXPLORE MAP <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Structured Metrics Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="m-icon icon-water"><i data-lucide="cloud-rain"></i></div>
+                        <div class="m-data">
+                            <span class="m-val">4,250L</span>
+                            <span class="m-label">RAINWATER</span>
+                        </div>
+                        <div class="m-trend positive"><span class="t-dot"></span> IMPROVING</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="m-icon icon-compost"><i data-lucide="leaf"></i></div>
+                        <div class="m-data">
+                            <span class="m-val">128kg</span>
+                            <span class="m-label">COMPOST</span>
+                        </div>
+                        <div class="m-trend stable"><span class="t-dot"></span> STABLE</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="m-icon icon-energy"><i data-lucide="sun"></i></div>
+                        <div class="m-data">
+                            <span class="m-val">342kWh</span>
+                            <span class="m-label">SOLAR ENERGY</span>
+                        </div>
+                        <div class="m-trend positive"><span class="t-dot"></span> IMPROVING</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="m-icon icon-nodes"><i data-lucide="users"></i></div>
+                        <div class="m-data">
+                            <span class="m-val live-val">214</span>
+                            <span class="m-label">ACTIVE USERS</span>
+                        </div>
+                        <div class="m-trend live"><span class="t-dot"></span> ATTENTION</div>
+                    </div>
+                </div>
+
+                <!-- System Pulse Card -->
+                <div class="activity-card">
+                    <div class="a-header">NETWORK PULSE</div>
+                    <div class="a-content">
+                        <div class="pulse-indicator">
+                            <span class="p-dot"></span>
+                            <span class="p-indicator-text">SYSTEM OPTIMIZING</span>
+                        </div>
+                        <div class="a-suggestion">
+                            <i data-lucide="info" style="width: 14px; margin-right: 4px;"></i>
+                            Sector B-12 needs hydration balance.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-map" class="view">
+                <div class="map-overlay-info">
+                    <div class="zone-info">ZONE: <span class="highlight">G-08</span></div>
+                    <div class="active-nodes">3 NODES NEARBY</div>
+                </div>
+                <!-- Toggle -->
+                <div class="map-mode-toggle">
+                    <button class="mode-btn active" id="btn-2d">2D MAP</button>
+                    <button class="mode-btn" id="btn-3d">3D VIEW</button>
+                </div>
+
+                <div class="map-container" id="map-container">
+
+                    <!-- 3D Orbit View System -->
+                    <div class="orbit-system" id="orbit-system"
+                        style="opacity: 0; pointer-events: none; transition: opacity 0.4s ease;">
+                        <img src="3d-view-1.png" class="park-3d-img active">
+                        <img src="3d-view-2.png" class="park-3d-img">
+                        <img src="3d-view-3.png" class="park-3d-img">
+                        <img src="3d-view-4.png" class="park-3d-img">
+                        <img src="3d-view-5.png" class="park-3d-img">
+
+                        <!-- 3D Grid Overlay -->
+                        <div class="grid-3d-overlay" id="grid-3d-overlay"></div>
+
+                        <!-- Tap Control Zones -->
+                        <div class="orbit-tap-zone left-zone" id="orbit-prev"><i data-lucide="chevron-left"></i></div>
+                        <div class="orbit-tap-zone right-zone" id="orbit-next"><i data-lucide="chevron-right"></i></div>
+
+                        <div class="drag-hint"><i data-lucide="move-horizontal"></i> <span>SWIPE OR TAP TO ORBIT</span>
+                        </div>
+                        <div class="interaction-hint">EXPLORE NODES TO INTERACT</div>
+                    </div>
+
+                    <!-- Scalable Vector Grid Map -->
+                    <div class="grid-system" id="grid-system" style="transition: opacity 0.4s ease;">
+                        <!-- 2D Architectural Plan -->
+                        <img src="architectural-plan.jpg" alt="Architectural Plan" class="park-map-img"
+                            id="park-plan-2d">
+                        <!-- Cells and nodes will be generated by JS -->
+                        <div class="user-location" id="user-location">
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-core"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Sheet for Selected Node -->
+                <div class="bottom-sheet" id="node-sheet">
+                    <div class="sheet-handle"></div>
+                    <div class="sheet-content">
+                        <!-- Default Node/Zone Info View -->
+                        <div id="sheet-info-view">
+                            <div class="sheet-header">
+                                <span class="node-id" id="node-id">A-12</span>
+                                <span class="node-type" id="node-type">KINETIC</span>
+                            </div>
+                            <h2 class="node-title" id="node-title">Dynamic Flow Pathway</h2>
+                            <p class="node-desc" id="node-desc">Engage with the environment. Walk or sprint through the
+                                motion sensors to generate grid energy.</p>
+
+                            <div class="reward-preview" id="reward-preview">
+                                <div class="reward-item">
+                                    <i data-lucide="zap"></i>
+                                    <span>+25 ENERGY</span>
+                                </div>
+                                <div class="reward-item">
+                                    <i data-lucide="activity"></i>
+                                    <span>+10 FLOW</span>
+                                </div>
+                            </div>
+
+                            <div class="sheet-actions" style="display: flex; flex-direction: column; gap: 12px;">
+                                <button class="primary-btn" id="start-activity-btn">INITIATE SEQUENCE <i
+                                        data-lucide="arrow-right"></i></button>
+                                <button class="secondary-btn" id="open-report-btn" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: var(--text-primary); font-family: var(--font-heading); font-size: 12px; font-weight: 600; letter-spacing: 1px; display: flex; justify-content: center; align-items: center; gap: 8px; cursor: pointer;">REPORT AN ISSUE <i data-lucide="camera" style="width: 16px; height: 16px;"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Report Form View (Hidden initially) -->
+                        <div id="sheet-report-view" style="display: none;">
+                            <div class="sheet-header">
+                                <span class="node-id" id="report-zone-id">Zone A-12</span>
+                                <span class="node-type" style="color: var(--accent-orange); border-color: var(--accent-orange);">MAINTENANCE</span>
+                            </div>
+                            <h2 class="node-title">Report an Issue</h2>
+                            <p class="node-desc" style="margin-bottom: 16px;">Log an issue to help maintain the park.</p>
+
+                            <div class="report-form">
+                                <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+                                    <button class="secondary-btn" id="photo-upload-btn" style="flex: 0 0 60px; height: 60px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.1); display: flex; justify-content: center; align-items: center; cursor: pointer; transition: all 0.3s; padding: 0;" title="Upload / Take Photo">
+                                        <i data-lucide="camera" style="width: 24px; height: 24px; color: var(--text-secondary);"></i>
+                                    </button>
+                                    <textarea id="report-note" class="system-textarea" placeholder="Describe the issue" style="flex: 1; height: 60px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px; color: var(--text-primary); font-family: var(--font-body); font-size: 13px; resize: none; outline: none; transition: border-color 0.3s; margin-bottom: 0;"></textarea>
+                                </div>
+                                
+                                <button class="primary-btn" id="submit-report-btn" style="background: var(--accent-orange); color: #000; margin-top: 8px;">SUBMIT <i data-lucide="upload-cloud" style="width: 16px; height: 16px;"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Success View (Hidden initially) -->
+                        <div id="sheet-success-view" style="display: none; text-align: center; padding: 20px 0;">
+                            <div class="success-icon" style="color: var(--accent-neon); margin-bottom: 16px; display: flex; justify-content: center;">
+                                <i data-lucide="check-circle" style="width: 48px; height: 48px;"></i>
+                            </div>
+                            <h2 class="node-title">ISSUE REPORTED</h2>
+                            <p class="node-desc">Thanks for contributing to park care in <span id="success-zone-id" style="color: var(--accent-blue); font-weight: bold;"></span>.</p>
+                            
+                            <div class="reward-preview" style="justify-content: center; margin: 24px 0;">
+                                <div class="reward-item" style="border: 1px solid var(--accent-neon); background: rgba(124, 152, 133, 0.1);">
+                                    <i data-lucide="zap" style="color: var(--accent-neon);"></i>
+                                    <span style="color: var(--accent-neon);">+20 ECO POINTS</span>
+                                </div>
+                            </div>
+                            <button class="primary-btn" id="close-report-btn">RETURN TO MAP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-rewards" class="view">
+                <div class="rewards-header" style="margin-bottom: 24px;">
+                    <h1 style="font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.5px; margin-bottom: 8px;">REWARDS</h1>
+                    
+                    <!-- Subtle Progress Summary -->
+                    <div class="level-summary" style="background: rgba(11,20,17,0.03); border: 1px solid rgba(0,0,0,0.05); padding: 16px; border-radius: 16px; display: flex; flex-direction: column; gap: 8px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);">Level 04 &mdash; <span style="color: var(--accent-neon);">Eco Agent</span></div>
+                            <div style="font-size: 12px; font-weight: 600; color: var(--text-secondary); font-family: var(--font-heading);">1420 / 2000 XP</div>
+                        </div>
+                        <div style="height: 4px; background: rgba(0,0,0,0.05); border-radius: 2px; overflow: hidden;">
+                            <div style="height: 100%; width: 71%; background: var(--accent-neon); border-radius: 2px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refined Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i data-lucide="zap" class="stat-icon energy"></i>
+                        <div class="stat-value">1,402</div>
+                        <div class="stat-label">Total Points</div>
+                    </div>
+                    <div class="stat-card">
+                        <i data-lucide="hexagon" class="stat-icon nodes"></i>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Activated Nodes</div>
+                    </div>
+                    <div class="stat-card">
+                        <i data-lucide="map" class="stat-icon explore"></i>
+                        <div class="stat-value">64%</div>
+                        <div class="stat-label">Area Explored</div>
+                    </div>
+                    <div class="stat-card">
+                        <i data-lucide="camera" class="stat-icon flow"></i>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Community Reports</div>
+                    </div>
+                </div>
+
+                <!-- Missions Section -->
+                <div class="missions-section">
+                    <h3>ACTIVE PROTOCOLS</h3>
+                    <div class="mission-list">
+                        <div class="mission-card">
+                            <div class="mission-info">
+                                <h4>Morning Hydration</h4>
+                                <p>Restore 3 irrigation nodes in the park.</p>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 66%;"></div>
+                                </div>
+                                <div class="progress-text">2/3 Completed</div>
+                            </div>
+                            <div class="quest-reward">+50 XP</div>
+                        </div>
+                        <div class="mission-card">
+                            <div class="mission-info">
+                                <h4>Grid Explorer</h4>
+                                <p>Explore the uncharted eastern sector.</p>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 25%;"></div>
+                                </div>
+                                <div class="progress-text">1/4 Zones</div>
+                            </div>
+                            <div class="quest-reward">+120 XP</div>
+                        </div>
+                        <div class="mission-card completed">
+                            <div class="mission-info">
+                                <h4>Compost Check</h4>
+                                <p>Verify organic matter levels in Zone A.</p>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 100%; background: var(--accent-blue);"></div>
+                                </div>
+                                <div class="progress-text" style="color: var(--accent-blue);">Completed</div>
+                            </div>
+                            <div class="quest-reward success" style="color: var(--accent-blue); background: rgba(155, 175, 212, 0.1);">DONE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-profile" class="view">
+                <div class="ecosystem-header system-ident">
+                    <div class="agent-identity">SYSTEM_ID: <span class="agent-name">AGENT_01</span></div>
+                    <div class="agent-role">ROLE: <span class="role-emphasized">KEYSTONE_ACTOR</span></div>
+                    <div class="agent-network">NETWORK_SYNC: <span class="sync-val">84.4%</span></div>
+                    <div class="agent-status-row">
+                        <span class="status-indicator pulse-active"></span>
+                        <span class="status-label">LIVING ECO-NODE</span>
+                    </div>
+                </div>
+
+                <div class="profile-content">
+
+                    <!-- Living Ecosystem Visualization -                    <!-- User Impact & System Status Panels -->
+                    <div class="profile-section">
+                        <div class="panel-container">
+                            <!-- User Impact Panel -->
+                            <div class="impact-panel glass-card">
+                                <div class="panel-header">USER IMPACT</div>
+                                <div class="impact-meter">
+                                    <div class="meter-info">
+                                        <div class="meter-label">WATER CONTRIBUTION</div>
+                                        <div class="meter-val">120L / 150L</div>
+                                    </div>
+                                    <div class="meter-bar-bg">
+                                        <div class="meter-fill bar-water" style="width: 80%;"></div>
+                                    </div>
+                                </div>
+                                <div class="impact-meter">
+                                    <div class="meter-info">
+                                        <div class="meter-label">COMPOST CONTRIBUTION</div>
+                                        <div class="meter-val">4.5kg / 5kg</div>
+                                    </div>
+                                    <div class="meter-bar-bg">
+                                        <div class="meter-fill bar-compost" style="width: 90%;"></div>
+                                    </div>
+                                </div>
+                                <div class="impact-meter">
+                                    <div class="meter-info">
+                                        <div class="meter-label">ENERGY CONTRIBUTION</div>
+                                        <div class="meter-val">45kWh / 100kWh</div>
+                                    </div>
+                                    <div class="meter-bar-bg">
+                                        <div class="meter-fill bar-energy" style="width: 45%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live System Status -->
+                            <div class="system-status-panel glass-card">
+                                <div class="panel-header">LIVE SYSTEM STATUS</div>
+                                <div class="status-row">
+                                    <div class="status-item">
+                                        <div class="status-icon icon-water"><i data-lucide="droplet"></i></div>
+                                        <div class="status-meta">
+                                            <div class="status-label">BASIN LEVEL</div>
+                                            <div class="status-indicator-tag level-med">MEDIUM</div>
+                                        </div>
+                                    </div>
+                                    <div class="status-item">
+                                        <div class="status-icon icon-compost"><i data-lucide="leaf"></i></div>
+                                        <div class="status-meta">
+                                            <div class="status-label">SOIL VITALITY</div>
+                                            <div class="status-indicator-tag level-high">HIGH</div>
+                                        </div>
+                                    </div>
+                                    <div class="status-item">
+                                        <div class="status-icon icon-energy"><i data-lucide="sun"></i></div>
+                                        <div class="status-meta">
+                                            <div class="status-label">GRID LOAD</div>
+                                            <div class="status-indicator-tag level-low">LOW</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Next Actions Panel -->
+                            <div class="actions-panel glass-card">
+                                <div class="panel-header">DÖNGÜ SUGGESTIONS</div>
+                                <div class="action-list">
+                                    <div class="action-item">
+                                        <div class="action-alert"><i data-lucide="alert-triangle"></i></div>
+                                        <div class="action-text">Sector B-12 needs hydration balance. Tap map to
+                                            navigate.</div>
+                                    </div>
+                                    <div class="action-item">
+                                        <div class="action-alert blue"><i data-lucide="info"></i></div>
+                                        <div class="action-text">Join the collective pollination sync at 14:00.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>iv>
+
+                    <!-- Direct Impact -->
+                    <div class="profile-section">
+                        <div class="section-title">VITALITY INFUSION</div>
+                        <div class="impact-grid">
+                            <div class="impact-card">
+                                <div class="impact-val highlight-compost">4.5<span>kg</span></div>
+                                <div class="impact-lbl">Nutrient Cycle<br>Fortified</div>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-val highlight-water">120<span>L</span></div>
+                                <div class="impact-lbl">Water Resources<br>Balanced</div>
+                            </div>
+                            <div class="impact-card">
+                                <div class="impact-val highlight-energy">45<span>kWh</span></div>
+                                <div class="impact-lbl">Micro-Grid<br>Stabilized</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Participation in Collective -->
+                    <div class="profile-section">
+                        <div class="section-title">COLLECTIVE RESONANCE</div>
+
+                        <div class="participation-summary">
+                            <div class="part-stat-box">
+                                <span class="part-val">8.4%</span>
+                                <span class="part-lbl">Your share of daily<br>park maintenance</span>
+                            </div>
+                            <div class="part-suggestion">
+                                <div class="ps-icon"><i data-lucide="network"></i></div>
+                                <div class="ps-info">
+                                    <span class="ps-title">Join Swarm Action</span>
+                                    <span class="ps-desc">Co-op Planting • East Sector</span>
+                                </div>
+                                <i data-lucide="chevron-right" class="ps-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="history-list">
+                            <div class="history-item">
+                                <div class="hi-icon kinetic"><i data-lucide="zap"></i></div>
+                                <div class="hi-info">
+                                    <div class="hi-title">Restored Sector G-08 Energy</div>
+                                    <div class="hi-time">2 hours ago • Acted alongside 14 others</div>
+                                </div>
+                            </div>
+                            <div class="history-item">
+                                <div class="hi-icon water"><i data-lucide="droplet"></i></div>
+                                <div class="hi-info">
+                                    <div class="hi-title">Balanced Basin Hydration</div>
+                                    <div class="hi-time">Yesterday • Critical Need Met</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Evolution -->
+                    <div class="profile-section gamification-section">
+                        <div class="section-title">SYMBIOTIC EVOLUTION</div>
+
+                        <div class="gamification-row">
+                            <div class="gamification-card streak-card">
+                                <div class="gc-icon"><i data-lucide="activity"></i></div>
+                                <div class="gc-info">
+                                    <span class="gc-val">Phase 4</span>
+                                    <span class="gc-lbl">Biological Integration</span>
+                                </div>
+                            </div>
+                            <div class="gamification-card milestone-card">
+                                <div class="gc-icon"><i data-lucide="share-2"></i></div>
+                                <div class="gc-info">
+                                    <span class="gc-val">Top 5%</span>
+                                    <span class="gc-lbl">Network Centrality</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="badges-container">
+                            <div class="badge-item active">
+                                <div class="badge-hexagon">
+                                    <i data-lucide="sprout"></i>
+                                </div>
+                                <span class="badge-name">Pioneer Species</span>
+                            </div>
+                            <div class="badge-item active">
+                                <div class="badge-hexagon">
+                                    <i data-lucide="waves"></i>
+                                </div>
+                                <span class="badge-name">Flow Catalyst</span>
+                            </div>
+                            <div class="badge-item active">
+                                <div class="badge-hexagon">
+                                    <i data-lucide="zap"></i>
+                                </div>
+                                <span class="badge-name">Grid Conduit</span>
+                            </div>
+                            <div class="badge-item locked">
+                                <div class="badge-hexagon">
+                                    <i data-lucide="globe"></i>
+                                </div>
+                                <span class="badge-name">Keystone Actor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <nav class="bottom-nav">
+                <button class="nav-item" data-target="view-home">
+                    <i data-lucide="grid"></i>
+                    <span>HOME</span>
+                </button>
+                <button class="nav-item active" data-target="view-map">
+                    <i data-lucide="map"></i>
+                    <span>MAP</span>
+                </button>
+                <button class="nav-item" data-target="view-rewards">
+                    <i data-lucide="award"></i>
+                    <span>REWARDS</span>
+                </button>
+                <button class="nav-item" data-target="view-profile">
+                    <i data-lucide="user"></i>
+                    <span>PROFILE</span>
+                </button>
+            </nav>
+        </main>
+
+        <!-- iOS Home Indicator -->
+        <div class="home-indicator"></div>
+    </div>
+</div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
